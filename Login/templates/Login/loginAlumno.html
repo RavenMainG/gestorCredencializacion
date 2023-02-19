@@ -1,0 +1,35 @@
+{% extends 'Login/layout/base.html' %}
+
+{% block content %}
+
+    <div class="container">
+
+
+        {% if error %}
+
+            <div class="alert alert-danger" role="alert">
+                {{ error }}
+            </div>
+
+        {% endif %}
+        <div class="d-flex flex-column justify-content-center align-items-center">
+            <form class="login_fomulario_login d-flex flex-column gap-5 p-3 justify-content-center align-items-center border shadow rounded"
+                  method="post">
+                <h2 class="align-items-center">Iniciar sesión como alumno</h2>
+                {% csrf_token %}
+                <div class="input__form form-group">
+                    <label for="id_email" class="form-label">Correo electrónico</label>
+                    <input type="email" name="email" class="form-control" id="id_email" required>
+                </div>
+                <div class="input__form form-group">
+                    <label for="id_password" class="form-label">Contraseña</label>
+                    <input type="password" name="password" class="form-control" id="id_password" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Iniciar sesión</button>
+            </form>
+        </div>
+
+    </div>
+
+
+{% endblock %}
